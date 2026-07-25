@@ -57,6 +57,19 @@ docker compose up -d --build
 
 The `reports` volume is not touched by a rebuild, so report history survives.
 
+After redeploying, verify the gate from a machine with no session cookie:
+
+```bash
+for path in / /sample /analyze /api/analyze; do
+  printf '%s -> ' "$path"
+  curl -s -o /dev/null -w '%{http_code}\n' "https://checkcompetition.org$path"
+done
+```
+
+Expected: `/` 200, `/sample` 200, `/analyze` 307, `/api/analyze` 401. Anything
+else means the allowlist in `proxy.ts` is wrong — a 200 on `/analyze` means the
+site is open and spending is unbounded.
+
 ## Operating
 
 ```bash

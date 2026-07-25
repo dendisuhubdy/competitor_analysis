@@ -4,6 +4,23 @@ Paste a company description, get a live-researched competitive analysis:
 competitor profiles, a positioning map, SWOT and moat, gaps and a wedge
 strategy, and sourced funding comparables with an implied valuation range.
 
+## Routes
+
+| Path | Access | What it is |
+| --- | --- | --- |
+| `/` | public | Landing page |
+| `/sample` | public | A complete stored report, rendered unedited |
+| `/analyze` | password | The form that starts a run |
+| `/report/[id]` | password | A run in progress or its finished report |
+
+The public pages render `lib/sample/report.json` — a real completed run —
+through the same dashboard components the app uses, so the sample cannot drift
+from the product. The fixture is parsed against `ReportSchema` at import, so a
+schema change fails the build rather than publishing a stale shape.
+
+`proxy.ts` holds the allowlist. `/api/analyze`, the route that spends money, is
+not on it.
+
 ## Setup
 
 ```bash
