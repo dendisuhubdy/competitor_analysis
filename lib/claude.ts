@@ -22,15 +22,36 @@ export const WEB_TOOLS = [
 let client: Anthropic | null = null
 
 /**
+ * `CLAUDE_MYLOBSTER_KEY` is this project's primary key and wins;
+ * `ANTHROPIC_API_KEY` (the SDK's own convention) is the fallback.
+ *
+ * The key is passed to the constructor explicitly rather than left to the
+ * SDK's implicit env lookup — otherwise a stray `ANTHROPIC_API_KEY` in the
+ * environment would silently take over, which is exactly the precedence we
+ * are overriding here.
+ */
+export function resolveApiKey(): string | undefined {
+  return process.env.CLAUDE_MYLOBSTER_KEY || process.env.ANTHROPIC_API_KEY
+}
+
+/** Test-only: drop the memoized client so a new key takes effect. */
+export function resetClientForTests(): void {
+  client = null
+}
+
+/**
  * Server-only. Importing this module from a client component would leak the
  * API key into the browser bundle.
  */
 export function getClient(): Anthropic {
   if (!client) {
-    if (!process.env.ANTHROPIC_API_KEY) {
-      throw new Error('ANTHROPIC_API_KEY is not set')
+    const apiKey = resolveApiKey()
+    if (!apiKey) {
+      throw new Error(
+        'No API key found. Set ANTHROPIC_API_KEY or CLAUDE_MYLOBSTER_KEY.',
+      )
     }
-    client = new Anthropic()
+    client = new Anthropic({ apiKey })
   }
   return client
 }

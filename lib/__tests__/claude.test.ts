@@ -1,5 +1,11 @@
-import { describe, it, expect } from 'vitest'
-import { assertNotRefused, RefusalError, WEB_TOOLS, MODEL } from '@/lib/claude'
+import { describe, it, expect, afterEach } from 'vitest'
+import {
+  assertNotRefused,
+  RefusalError,
+  WEB_TOOLS,
+  MODEL,
+  resolveApiKey,
+} from '@/lib/claude'
 import { researchPrompt, structuringPrompt } from '@/lib/analysis/prompts'
 
 describe('assertNotRefused', () => {
@@ -26,6 +32,39 @@ describe('assertNotRefused', () => {
     expect(() =>
       assertNotRefused({ stop_reason: 'refusal', stop_details: null }),
     ).toThrow(RefusalError)
+  })
+})
+
+describe('resolveApiKey', () => {
+  const saved = {
+    lobster: process.env.CLAUDE_MYLOBSTER_KEY,
+    anthropic: process.env.ANTHROPIC_API_KEY,
+  }
+
+  afterEach(() => {
+    // Restore, since the real key may be present in this shell.
+    if (saved.lobster === undefined) delete process.env.CLAUDE_MYLOBSTER_KEY
+    else process.env.CLAUDE_MYLOBSTER_KEY = saved.lobster
+    if (saved.anthropic === undefined) delete process.env.ANTHROPIC_API_KEY
+    else process.env.ANTHROPIC_API_KEY = saved.anthropic
+  })
+
+  it('prefers CLAUDE_MYLOBSTER_KEY over ANTHROPIC_API_KEY', () => {
+    process.env.CLAUDE_MYLOBSTER_KEY = 'lobster'
+    process.env.ANTHROPIC_API_KEY = 'anthropic'
+    expect(resolveApiKey()).toBe('lobster')
+  })
+
+  it('falls back to ANTHROPIC_API_KEY', () => {
+    delete process.env.CLAUDE_MYLOBSTER_KEY
+    process.env.ANTHROPIC_API_KEY = 'anthropic'
+    expect(resolveApiKey()).toBe('anthropic')
+  })
+
+  it('returns undefined when neither is set', () => {
+    delete process.env.CLAUDE_MYLOBSTER_KEY
+    delete process.env.ANTHROPIC_API_KEY
+    expect(resolveApiKey()).toBeUndefined()
   })
 })
 
