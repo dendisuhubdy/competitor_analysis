@@ -14,7 +14,7 @@ npm run dev
 
 ## How it works
 
-Two Claude Opus 5 calls.
+Four Claude Opus 5 calls: one research call, then three structuring calls.
 
 **Phase 1 — research.** Streams with adaptive thinking at `effort: high` and
 Claude's server-side `web_search` / `web_fetch` tools. Produces free-form notes
@@ -25,6 +25,14 @@ report to `confidence: "low"` rather than failing.
 
 **Phase 2 — structuring.** No tools. Reshapes the notes into a Zod-validated
 payload via `messages.parse()`, which retries the model on schema mismatch.
+
+This runs as **three** calls — landscape, strategy, valuation — not one.
+Structured outputs compile the schema into a grammar server-side, and the whole
+`ReportSchema` exceeds the size limit: one call returns `400 The compiled
+grammar is too large`. Each section is constrained by its own sub-schema and the
+results are merged, then validated against the full `ReportSchema`. A type-level
+check in `schema.ts` proves the three sections partition the report exactly, so
+a new report field cannot be added without being assigned to a section.
 
 Progress is persisted to SQLite as the run proceeds, so `/report/[id]` streams
 the real search queries Claude issues and survives a refresh. A client
@@ -46,9 +54,22 @@ rules are enforced in code, not just in the prompt:
 
 ## Cost
 
-Roughly $0.30–$1.00 per report in tokens, plus web search billed separately.
-Actual usage and estimated token cost are recorded per run and shown on the
-report. Rate limited to 5 runs per IP per hour — change with `RATE_LIMIT_MAX`.
+**Around $7 per report in tokens**, plus web search billed separately. A
+measured run: 1.16M input tokens, 48K output, 20 web searches, ~11 minutes,
+$7.25 estimated token cost.
+
+Nearly all of it is phase 1. Each `pause_turn` resumption re-sends the whole
+conversation — including every page `web_fetch` has pulled in — so input tokens
+grow superlinearly across continuations. Phase 2 is a rounding error by
+comparison.
+
+To cut it: lower `effort` on the research call, reduce `max_uses` on the web
+tools, or lower `MAX_CONTINUATIONS` (all in `lib/claude.ts` and
+`lib/analysis/research.ts`). Actual usage and estimated token cost are recorded
+per run and shown on the report.
+
+Rate limited to 5 runs per IP per hour — change with `RATE_LIMIT_MAX`. At ~$7 a
+run that default is worth revisiting before exposing this publicly.
 
 ## Deploying
 

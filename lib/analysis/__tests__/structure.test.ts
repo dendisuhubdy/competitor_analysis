@@ -118,7 +118,7 @@ describe('structureReport', () => {
     expect(r.report.confidence).toBe('medium')
   })
 
-  it('sends a distinct schema per call over an identical cached prefix', async () => {
+  it('sends a distinct schema per call over an identical context prefix', async () => {
     const client = fakeClient(validReport())
     await structureReport({
       description: 'x',
@@ -137,19 +137,28 @@ describe('structureReport', () => {
     )
     expect(new Set(schemas).size).toBe(3)
 
-    // The notes block is byte-identical and carries the cache breakpoint, so
-    // calls 2 and 3 read it back instead of re-billing it.
+    // Every call carries the same notes; only the trailing instruction varies.
     const prefixes = calls.map((c) => (c.messages as never[])[0])
     const first = prefixes.map(
       (m) => (m as { content: { text: string }[] }).content[0],
     )
     expect(new Set(first.map((b) => b.text)).size).toBe(1)
     expect(first[0].text).toContain('the notes')
+
+    // No cache_control: output_config.format is part of the cached prefix, so
+    // three different schemas can never share an entry. A breakpoint would add
+    // the write premium to every call and never be read back. See structure.ts.
     for (const block of first) {
-      expect((block as unknown as Record<string, unknown>).cache_control).toEqual({
-        type: 'ephemeral',
-      })
+      expect(
+        (block as unknown as Record<string, unknown>).cache_control,
+      ).toBeUndefined()
     }
+
+    // The instructions do differ, which is what makes each call a section.
+    const instructions = prefixes.map(
+      (m) => (m as { content: { text: string }[] }).content[1].text,
+    )
+    expect(new Set(instructions).size).toBe(3)
   })
 
   it('throws RefusalError before touching parsed_output', async () => {

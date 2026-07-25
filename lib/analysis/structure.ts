@@ -48,10 +48,17 @@ const SECTIONS = [
  * It runs as THREE schema-constrained calls rather than one. The whole
  * `ReportSchema` exceeds the structured-output grammar limit and returns 400
  * "The compiled grammar is too large" — see the note on the section schemas in
- * `schema.ts` for the measured boundary. Each call sends the same cached
- * context prefix (description + notes) and differs only in its trailing
- * instruction and its schema, so calls 2 and 3 read the notes from cache
- * instead of re-billing them.
+ * `schema.ts` for the measured boundary.
+ *
+ * NO PROMPT CACHING HERE, deliberately. The obvious optimisation is to put the
+ * research notes behind a `cache_control` breakpoint so calls 2 and 3 read them
+ * back rather than re-billing the largest input three times. It does not work:
+ * `output_config.format` participates in the cached prefix, so three calls with
+ * three different schemas produce three different cache entries. Measured
+ * against the live API: two calls with the same schema and an identical text
+ * prefix hit (write=3381 → read=3381); changing only the schema missed and paid
+ * a fresh write. A breakpoint here would add the 1.25x write premium to every
+ * call and never once be read.
  *
  * DELIBERATE: no `fallbacks` here. Server-side fallbacks require the beta
  * messages endpoint, but `messages.parse()` — which validates the response
@@ -89,11 +96,7 @@ export async function structureReport(opts: {
         {
           role: 'user',
           content: [
-            // Identical across all three calls, so it caches. The breakpoint
-            // goes here rather than on the instruction below — caching the
-            // instruction too would key the entry to a single section and
-            // nothing would ever be read back.
-            { type: 'text', text: context, cache_control: { type: 'ephemeral' } },
+            { type: 'text', text: context },
             { type: 'text', text: SECTION_INSTRUCTIONS[section.key] },
           ],
         },

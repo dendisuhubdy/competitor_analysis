@@ -45,11 +45,13 @@ Write up your findings as detailed notes with inline source URLs. Do not format 
 }
 
 /**
- * The shared, byte-identical prefix for all three structuring calls. Keeping it
- * identical is what lets the notes — by far the largest input — be cached and
- * read back on calls 2 and 3 instead of re-billed at full rate. Anything that
- * varies per call belongs in the section instruction, which is appended after
- * the cache breakpoint.
+ * The shared context prefix for all three structuring calls: the description
+ * and the research notes, which every section needs in full. Anything that
+ * varies per call belongs in the section instruction appended after it.
+ *
+ * This prefix is NOT prompt-cached — the per-call schema sits ahead of it in
+ * the cached prefix, so the three calls can never share an entry. See the note
+ * in `structure.ts`.
  */
 export function structuringPrompt(
   description: string,
