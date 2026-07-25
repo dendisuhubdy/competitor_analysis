@@ -1,18 +1,23 @@
-import AnalyzeForm from '@/components/AnalyzeForm'
+import Nav from '@/components/landing/Nav'
+import Hero from '@/components/landing/Hero'
+import SourcedProof from '@/components/landing/SourcedProof'
+import SampleSlice from '@/components/landing/SampleSlice'
+import HowItWorks from '@/components/landing/HowItWorks'
+import CostBand from '@/components/landing/CostBand'
+import Footer from '@/components/landing/Footer'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-neutral-950 px-6 py-16">
-      <div className="mb-10 max-w-2xl text-center">
-        <h1 className="text-4xl font-semibold tracking-tight text-neutral-50">
-          Competitor analysis
-        </h1>
-        <p className="mt-3 text-neutral-400">
-          Describe your company. Get a researched, sourced read on who you are
-          up against, where the gaps are, and what the market is raising at.
-        </p>
-      </div>
-      <AnalyzeForm />
-    </main>
+    <div className="flex min-h-screen flex-col bg-neutral-950">
+      <Nav />
+      <main className="flex-1">
+        <Hero />
+        <SourcedProof />
+        <SampleSlice />
+        <HowItWorks />
+        <CostBand />
+      </main>
+      <Footer />
+    </div>
   )
 }
