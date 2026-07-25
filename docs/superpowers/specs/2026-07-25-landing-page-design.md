@@ -84,10 +84,14 @@ gradients and cards.
 1. **Nav** — wordmark, link to `/sample`, primary CTA to `/analyze`.
 2. **Hero** — oversized serif headline, subhead, two CTAs, and a one-line
    statement of what a run costs in time.
-3. **The refusal** — three figures from the sample (38 sources, 9 sourced
-   comparable rounds, 0 disclosed post-money valuations) above the real
-   `ValuationPanel` "No implied range reported" card. The strongest claim the
-   product can make, shown working rather than asserted.
+3. **The refusal** — three figures derived from the sample (38 sources, 9
+   sourced comparable rounds, 7 of them disclosing no valuation) above a
+   verbatim pull-quote of the report's own first caveat, which explains why no
+   range is reported. The two comparables that *do* disclose a post-money
+   valuation are both out-of-category, which is the report's stated reason for
+   withholding a range — so the section links to the full `ValuationPanel` on
+   `/sample` rather than reproducing its table and eight caveats inline.
+   The strongest claim the product can make, shown working rather than asserted.
 4. **Sample slice** — the real positioning map and three competitor cards in a
    bordered frame, linking to the full report at `/sample`.
 5. **How it works** — research, structure, report. Numbered, hairline-ruled.
@@ -125,6 +129,20 @@ Two existing inconsistencies are touched by this work and fixed with it:
    number is the measured one.
 2. `/report/[id]`'s failure state links "Start over" to `/`, which is now a
    marketing page. It retargets to `/analyze`.
+3. `globals.css` sets `body { font-family: Arial, Helvetica, sans-serif }`,
+   which overrides the Geist font the layout goes to the trouble of loading.
+   The site has never rendered in its intended typeface. Since this work is
+   substantially typographic, that is fixed to `var(--font-sans)`.
+
+## Refactor in scope
+
+`/sample` and `/report/[id]` must render the same report identically. Rather
+than duplicate the dashboard composition, the body of `app/report/[id]/page.tsx`
+is extracted to `components/dashboard/ReportView.tsx`, taking
+`{ report: Report; usage?: UsageSummary | null; banner?: React.ReactNode }`.
+Both pages then render it. The `banner` slot is how `/sample` marks itself as a
+sample and carries its call to action without `ReportView` knowing either page
+exists.
 
 ## Testing
 
