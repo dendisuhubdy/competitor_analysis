@@ -3,6 +3,12 @@ import { structureReport } from '@/lib/analysis/structure'
 import { appendProgress, finishReport, failReport } from '@/lib/db'
 import { emptyUsage, type UsageSummary } from '@/lib/cost'
 
+const SECTION_LABELS: Record<string, string> = {
+  landscape: 'Mapping competitors',
+  strategy: 'Working out positioning and the wedge',
+  valuation: 'Assembling comparables and valuation',
+}
+
 function mergeUsage(a: UsageSummary, b: UsageSummary): UsageSummary {
   return {
     inputTokens: a.inputTokens + b.inputTokens,
@@ -48,6 +54,15 @@ export async function runAnalysis(
       description,
       notes: research.notes,
       truncated: research.truncated,
+      // Phase 2 is three calls, not one. Without this the feed sits silent on
+      // "Building the dashboard" for the whole pass.
+      onProgress: (section) =>
+        appendProgress(
+          reportId,
+          'structuring',
+          'thinking',
+          SECTION_LABELS[section] ?? section,
+        ),
     })
 
     const usage = mergeUsage(

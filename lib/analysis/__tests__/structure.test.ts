@@ -46,14 +46,43 @@ function validReport(): Report {
   }
 }
 
+/**
+ * Phase 2 makes one schema-constrained call per report section, so the stub
+ * hands back only that section's keys on each successive call — the same shape
+ * the real API returns. If `structureReport` ever stopped merging the sections,
+ * the final `ReportSchema.parse` would fail on the missing keys.
+ */
+function sectionsOf(report: Report): Record<string, unknown>[] {
+  return [
+    { company: report.company, competitors: report.competitors },
+    {
+      positioning: report.positioning,
+      swot: report.swot,
+      moat: report.moat,
+      gaps: report.gaps,
+      wedge: report.wedge,
+    },
+    {
+      valuation: report.valuation,
+      sources: report.sources,
+      confidence: report.confidence,
+    },
+  ]
+}
+
 function fakeClient(parsed: unknown, stop = 'end_turn', category?: string) {
+  // `null` means "the model returned nothing parseable" — keep it null on every
+  // call rather than slicing it into sections.
+  const outputs =
+    parsed === null ? [null, null, null] : sectionsOf(parsed as Report)
+  let call = 0
   return {
     messages: {
       parse: vi.fn(async () => ({
         stop_reason: stop,
         stop_details: category ? { category, explanation: null } : null,
-        parsed_output: parsed,
-        usage: { input_tokens: 500, output_tokens: 900 },
+        parsed_output: outputs[Math.min(call++, outputs.length - 1)],
+        usage: { input_tokens: 500, output_tokens: 300 },
       })),
     },
   }
@@ -69,7 +98,58 @@ describe('structureReport', () => {
       client: client as never,
     })
     expect(r.report.company.name).toBe('Acme')
+    // Usage accumulates across all three section calls.
     expect(r.usage.outputTokens).toBe(900)
+  })
+
+  it('merges three section calls into one report', async () => {
+    const client = fakeClient(validReport())
+    const r = await structureReport({
+      description: 'x',
+      notes: 'n',
+      truncated: false,
+      client: client as never,
+    })
+
+    expect(client.messages.parse).toHaveBeenCalledTimes(3)
+    // Every section landed, not just the last call's keys.
+    expect(r.report.company.name).toBe('Acme')
+    expect(r.report.positioning.points).toHaveLength(1)
+    expect(r.report.confidence).toBe('medium')
+  })
+
+  it('sends a distinct schema per call over an identical cached prefix', async () => {
+    const client = fakeClient(validReport())
+    await structureReport({
+      description: 'x',
+      notes: 'the notes',
+      truncated: false,
+      client: client as never,
+    })
+
+    const calls = client.messages.parse.mock.calls.map(
+      ([params]) => params as Record<string, never>,
+    )
+
+    // Each call constrains a different slice of the report.
+    const schemas = calls.map((c) =>
+      JSON.stringify((c.output_config as Record<string, unknown>).format),
+    )
+    expect(new Set(schemas).size).toBe(3)
+
+    // The notes block is byte-identical and carries the cache breakpoint, so
+    // calls 2 and 3 read it back instead of re-billing it.
+    const prefixes = calls.map((c) => (c.messages as never[])[0])
+    const first = prefixes.map(
+      (m) => (m as { content: { text: string }[] }).content[0],
+    )
+    expect(new Set(first.map((b) => b.text)).size).toBe(1)
+    expect(first[0].text).toContain('the notes')
+    for (const block of first) {
+      expect((block as unknown as Record<string, unknown>).cache_control).toEqual({
+        type: 'ephemeral',
+      })
+    }
   })
 
   it('throws RefusalError before touching parsed_output', async () => {

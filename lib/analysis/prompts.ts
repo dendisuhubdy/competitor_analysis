@@ -44,6 +44,13 @@ Work through these in order, searching as you go:
 Write up your findings as detailed notes with inline source URLs. Do not format as JSON — a later step handles that.`
 }
 
+/**
+ * The shared, byte-identical prefix for all three structuring calls. Keeping it
+ * identical is what lets the notes — by far the largest input — be cached and
+ * read back on calls 2 and 3 instead of re-billed at full rate. Anything that
+ * varies per call belongs in the section instruction, which is appended after
+ * the cache breakpoint.
+ */
 export function structuringPrompt(
   description: string,
   notes: string,
@@ -62,14 +69,39 @@ ${description}
 <research_notes>
 ${notes}
 </research_notes>
-${warning}
+${warning}`
+}
+
+/**
+ * One instruction per structuring call. The report is assembled from three
+ * schema-constrained calls because the whole schema exceeds the structured-
+ * output grammar limit — see the note on the section schemas in `schema.ts`.
+ */
+export const SECTION_INSTRUCTIONS = {
+  landscape: `Extract the company and its competitors from the notes above.
+
 Field guidance:
+- company: what this company does, the category it competes in, and the stage the notes suggest it is at.
 - overlapScore: 0-100, how directly this competitor competes for the same customer.
-- positioning points: x and y on a 0-100 scale matching the axes you define. Exactly one point must have isYou = true.
+- category: "direct" solves the same problem for the same buyer; "adjacent" overlaps on problem or buyer but not both; "emerging" is early but trending toward direct.
+- funding and pricing: null when the notes do not cover them. Do not guess.
+- sources: the URLs in the notes that back the claims you made about that competitor.`,
+
+  strategy: `Extract the positioning, SWOT, moat, gaps, and wedge from the notes above.
+
+Field guidance:
+- positioning axes: the two dimensions that genuinely separate this market, per the notes — not generic "price vs quality" unless that is truly the split.
+- positioning points: x and y on a 0-100 scale matching the axes you define. Include the company and each competitor. Exactly one point must have isYou = true.
 - moat.verdict: be honest. "none" and "weak" are valid and common answers.
-- valuation.comparables: include ONLY rounds with a source URL present in the notes. Every numeric field may be null; the source may not.
+- gaps: only segments the notes give you evidence for. "whyUnserved" should distinguish "nobody has noticed" from "everybody tried and it does not work".
+- wedge: a single recommendation the founder could act on this quarter.`,
+
+  valuation: `Extract the valuation picture and the report-level summary fields from the notes above.
+
+Field guidance:
+- valuation.comparables: include ONLY rounds with a source URL present in the notes. Every numeric field may be null; the source may not. Omit any round you cannot source rather than estimating it.
 - valuation.impliedRange: derive it only from the comparables you listed. If there are fewer than ${MIN_COMPARABLES_FOR_RANGE} sourced comparables, set it to null.
 - valuation.caveats: state what the range does and does not account for.
 - confidence: "high" only if the notes contain sourced detail on most competitors.
-- sources: the deduplicated union of every URL cited anywhere in the report.`
-}
+- sources: the deduplicated union of every URL cited anywhere in the notes.`,
+} as const

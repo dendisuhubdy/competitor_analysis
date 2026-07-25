@@ -118,19 +118,56 @@ export const ValuationSchema = z.object({
   caveats: z.array(z.string()),
 })
 
+export const CompanySchema = z.object({
+  name: z.string(),
+  oneLiner: z.string(),
+  category: z.string(),
+  inferredStage: z.string(),
+})
+
 export const ReportSchema = z.object({
-  company: z.object({
-    name: z.string(),
-    oneLiner: z.string(),
-    category: z.string(),
-    inferredStage: z.string(),
-  }),
+  company: CompanySchema,
   competitors: z.array(CompetitorSchema),
   positioning: PositioningSchema,
   swot: SwotSchema,
   moat: MoatSchema,
   gaps: z.array(GapSchema),
   wedge: WedgeSchema,
+  valuation: ValuationSchema,
+  sources: z.array(SourceSchema),
+  confidence: z.enum(['high', 'medium', 'low']),
+})
+
+/**
+ * Structured outputs compile the JSON schema into a grammar server-side, and
+ * that grammar has a size limit `ReportSchema` exceeds — the whole report in one
+ * call returns 400 "The compiled grammar is too large". Measured against the
+ * live API: a schema of ~60 leaf properties compiles, ~100 does not, and
+ * `ReportSchema` sits above the line. Nesting is cheap; it is the *count* of
+ * leaf properties that costs. (Union types — every `.nullable()` — are governed
+ * by a separate, stricter "too many parameters with union types" limit, so keep
+ * nullable fields sparse within any one section.)
+ *
+ * So phase 2 runs one schema-constrained call per section and merges the
+ * results. These three partition `ReportSchema` exactly: every key appears in
+ * exactly one section, and `REPORT_SECTIONS` is type-checked against `Report`
+ * below so a new field cannot be added to the report without being assigned to
+ * a section.
+ */
+export const LandscapeSectionSchema = z.object({
+  company: CompanySchema,
+  competitors: z.array(CompetitorSchema),
+})
+
+export const StrategySectionSchema = z.object({
+  positioning: PositioningSchema,
+  swot: SwotSchema,
+  moat: MoatSchema,
+  gaps: z.array(GapSchema),
+  wedge: WedgeSchema,
+})
+
+export const ValuationSectionSchema = z.object({
   valuation: ValuationSchema,
   sources: z.array(SourceSchema),
   confidence: z.enum(['high', 'medium', 'low']),
@@ -146,6 +183,25 @@ export type Wedge = z.infer<typeof WedgeSchema>
 export type Comparable = z.infer<typeof ComparableSchema>
 export type Valuation = z.infer<typeof ValuationSchema>
 export type Report = z.infer<typeof ReportSchema>
+
+export type LandscapeSection = z.infer<typeof LandscapeSectionSchema>
+export type StrategySection = z.infer<typeof StrategySectionSchema>
+export type ValuationSection = z.infer<typeof ValuationSectionSchema>
+
+/**
+ * Compile-time proof that the three sections partition `Report` exactly — their
+ * union is assignable to `Report` and vice versa. Add a field to `ReportSchema`
+ * without putting it in a section and this stops compiling, which is the point:
+ * a silently unassigned field would be missing from every structuring call and
+ * only surface as a Zod failure at runtime, after paying for the research.
+ */
+type SectionUnion = LandscapeSection & StrategySection & ValuationSection
+const _sectionsPartitionReport: SectionUnion extends Report
+  ? Report extends SectionUnion
+    ? true
+    : never
+  : never = true
+void _sectionsPartitionReport
 
 /**
  * Belt-and-braces enforcement of the valuation integrity rules. The schema
