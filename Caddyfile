@@ -1,0 +1,17 @@
+# TLS is automatic: Caddy requests and renews a Let's Encrypt certificate for
+# SITE_DOMAIN, provided the domain's A record already points at this host and
+# ports 80/443 are reachable.
+{$SITE_DOMAIN} {
+	encode zstd gzip
+
+	# An analysis run takes ~10-15 minutes and the report page holds an SSE
+	# connection open for its duration. The default proxy timeouts would cut
+	# the progress feed off long before the run finishes.
+	reverse_proxy app:3000 {
+		flush_interval -1
+		transport http {
+			read_timeout 30m
+			write_timeout 30m
+		}
+	}
+}

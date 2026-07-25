@@ -1,0 +1,16 @@
+# Keep secrets and local state out of the build context entirely — anything
+# copied in is recoverable from the image, even if a later layer deletes it.
+.env
+.env.*
+data/
+
+.git/
+.next/
+node_modules/
+docs/
+*.md
+!README.md
+
+npm-debug.log*
+.DS_Store
+tsconfig.tsbuildinfo

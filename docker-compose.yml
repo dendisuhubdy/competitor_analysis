@@ -1,0 +1,44 @@
+# Production stack for the droplet: the app plus Caddy, which terminates TLS
+# and obtains a certificate from Let's Encrypt automatically.
+#
+# Secrets come from a .env file sitting next to this one on the server; nothing
+# sensitive belongs in this file or in git.
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      # Phase 1 + phase 2 both need this. Runs cost real money.
+      CLAUDE_MYLOBSTER_KEY: ${CLAUDE_MYLOBSTER_KEY:?set CLAUDE_MYLOBSTER_KEY in .env}
+      # The shared password gate. Without it the site is open to the internet
+      # and anyone can spend the API key, so it is required rather than optional.
+      SITE_PASSWORD: ${SITE_PASSWORD:?set SITE_PASSWORD in .env}
+      RATE_LIMIT_MAX: ${RATE_LIMIT_MAX:-5}
+      DATABASE_PATH: /data/reports.db
+    volumes:
+      # Survives redeploys. Losing this loses every past report.
+      - reports:/data
+    # Not published to the host: Caddy is the only way in.
+    expose:
+      - "3000"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:?set SITE_DOMAIN in .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  reports:
+  caddy_data:
+  caddy_config:
