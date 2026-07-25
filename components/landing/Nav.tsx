@@ -11,9 +11,12 @@ export default function Nav() {
         checkcompetition
       </Link>
       <div className="flex items-center gap-5">
+        {/* Below ~640px the wordmark, this link and the button collide. The
+            sample is reachable from the hero and the footer, so this is the one
+            that goes. */}
         <Link
           href="/sample"
-          className="text-sm text-neutral-400 transition hover:text-neutral-100"
+          className="hidden text-sm text-neutral-400 transition hover:text-neutral-100 sm:block"
         >
           Sample report
         </Link>

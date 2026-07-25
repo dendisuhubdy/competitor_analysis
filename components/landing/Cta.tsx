@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const BASE =
-  'inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition'
+  'inline-flex items-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-medium transition'
 
 const VARIANTS = {
   primary: 'bg-neutral-100 text-neutral-900 hover:bg-white',
