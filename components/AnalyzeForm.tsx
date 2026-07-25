@@ -77,7 +77,8 @@ export default function AnalyzeForm() {
         {submitting ? 'Starting research…' : 'Run competitor analysis'}
       </button>
       <p className="mt-3 text-center text-xs text-neutral-500">
-        Researches the live web. Takes 1–2 minutes.
+        Researches the live web. Takes 10–15 minutes — the page streams progress
+        and survives a refresh.
       </p>
     </form>
   )

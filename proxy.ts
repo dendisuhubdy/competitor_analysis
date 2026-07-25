@@ -12,6 +12,19 @@ import { SESSION_COOKIE, sitePassword, verifySession } from '@/lib/auth'
  * convention is deprecated and renamed as of Next.js 16. The runtime is Node.js
  * by default and the `runtime` config option throws if set, so don't add one.
  */
+/**
+ * Reachable without a session.
+ *
+ * `/` and `/sample` are the public face of the site: a visitor has to be able
+ * to see what this is before being asked for a password they may not have.
+ * `/login` and `/api/login` must stay open or there is no way in.
+ *
+ * Nothing that spends money is listed here. `/api/analyze` is the route that
+ * costs ~$7 a call and it is deliberately absent — matched exactly, so a path
+ * that merely starts with a public path is not itself public.
+ */
+const PUBLIC_PATHS = new Set(['/', '/sample', '/login', '/api/login'])
+
 export async function proxy(request: NextRequest) {
   const password = sitePassword()
 
@@ -24,11 +37,7 @@ export async function proxy(request: NextRequest) {
 
   const { pathname, search } = request.nextUrl
 
-  // The login form itself and the endpoint that validates it must stay open,
-  // or there is no way in.
-  if (pathname === '/login' || pathname === '/api/login') {
-    return NextResponse.next()
-  }
+  if (PUBLIC_PATHS.has(pathname)) return NextResponse.next()
 
   // API callers get a status code they can act on. Redirecting an unauthorised
   // fetch to an HTML login page would surface as a JSON parse error instead.
@@ -37,8 +46,9 @@ export async function proxy(request: NextRequest) {
   }
 
   const login = new URL('/login', request.url)
-  // Send the visitor back where they were aiming once they are through.
-  if (pathname !== '/') login.searchParams.set('next', `${pathname}${search}`)
+  // Send the visitor back where they were aiming once they are through. `/` no
+  // longer needs excluding here — it is public and never reaches this line.
+  login.searchParams.set('next', `${pathname}${search}`)
   return NextResponse.redirect(login)
 }
 

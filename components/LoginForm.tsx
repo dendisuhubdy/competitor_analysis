@@ -31,10 +31,12 @@ export default function LoginForm() {
 
       // Only accept a same-origin relative path — a raw `next` value would let
       // a crafted link bounce an authenticated visitor to another site.
+      // With no usable `next`, land on the app rather than the public page they
+      // have already read.
       const next = params.get('next')
       const target = next && next.startsWith('/') && !next.startsWith('//')
         ? next
-        : '/'
+        : '/analyze'
 
       router.replace(target)
       router.refresh()

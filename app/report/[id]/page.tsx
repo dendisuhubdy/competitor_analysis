@@ -44,7 +44,7 @@ export default async function ReportPage({
             {row.error ?? 'The run ended without producing a report.'}
           </p>
           <a
-            href="/"
+            href="/analyze"
             className="mt-6 inline-block rounded-lg bg-neutral-100 px-5 py-2.5 font-medium text-neutral-900 hover:bg-white"
           >
             Start over
