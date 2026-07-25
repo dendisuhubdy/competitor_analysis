@@ -1,0 +1,1134 @@
+{
+  "company": {
+    "name": "Unnamed AI legal meeting notetaker (pre-seed)",
+    "oneLiner": "AI meeting notetaker for law firms that joins client calls, produces citation-grade transcripts with speaker attribution, and auto-drafts billable-time entries linked to matter numbers.",
+    "category": "Legal AI meeting capture + automated legal timekeeping (billable time entry), overlapping legal-grade transcription",
+    "inferredStage": "Pre-seed with 3 design partners"
+  },
+  "competitors": [
+    {
+      "name": "VXT",
+      "url": "https://www.vxt.ai/products/meet",
+      "oneLiner": "\"The AI notetaker for attorneys\" — captures in-person and virtual meetings and saves transcripts, summaries and an automatic time entry to the correct matter in the firm's legal software.",
+      "category": "direct",
+      "overlapScore": 95,
+      "funding": null,
+      "pricing": {
+        "model": "Per-user subscription, published self-serve pricing",
+        "entryPrice": "$40/user/month (VXT Meet, billed annually)",
+        "notes": "VXT Phone $80/user/month annual (integrated calling + SMS, AI transcripts/summaries, notes into legal software); VXT Team currently free beta (list $24); phone numbers $5/mo; priced in USD/GBP/NZD/AUD."
+      },
+      "targetSegment": "Law firms specifically; VoIP/phone system for law firms is the core business with the notetaker as land-and-expand",
+      "strengths": [
+        "Owns the phone line — captures phone calls, virtual meetings and in-person meetings",
+        "Already integrated with legal practice management systems",
+        "Cheap, public, self-serve price point"
+      ],
+      "weaknesses": [
+        "ANZ-origin with thinner US brand presence",
+        "Phone-system-first means telephony rip-and-replace for full value",
+        "No evidence of citation-grade / evidentiary positioning",
+        "No compliance (OCG) layer on time entries",
+        "No funding data could be found"
+      ],
+      "sources": [
+        {
+          "title": "VXT Meet product page",
+          "url": "https://www.vxt.ai/products/meet"
+        },
+        {
+          "title": "VXT pricing",
+          "url": "https://www.vxt.ai/pricing"
+        },
+        {
+          "title": "VXT for law",
+          "url": "https://www.vxt.ai/industry/law"
+        }
+      ]
+    },
+    {
+      "name": "Ajax",
+      "url": "https://joinajax.com/",
+      "oneLiner": "Native desktop app that continuously monitors lawyer device activity to generate custom, OCG-compliant time entries.",
+      "category": "direct",
+      "overlapScore": 75,
+      "funding": {
+        "totalRaised": null,
+        "lastRound": "Pre-seed — conflicting figures across sources; do not cite a dollar amount",
+        "lastRoundDate": null,
+        "investors": [
+          "Fika Ventures",
+          "Bloomberg Beta",
+          "ESQvest",
+          "Five Two Five",
+          "m]x[v Capital"
+        ]
+      },
+      "pricing": null,
+      "targetSegment": "Mid-sized firms on Clio, 20–150 timekeepers",
+      "strengths": [
+        "Native capture surface across the whole workday (argues API-only competitors miss too much)",
+        "OCG-compliant time entries as headline positioning",
+        "Eight PMS/billing integrations (Clio, MyCase, Filevine, PracticePanther, SurePoint, Actionstep, Centerbase, Soluno)",
+        "Strong reported pilot motion (claimed 97% pilot-to-paid in 2025, 10–20 entries/day/user, 42–61% recorded-hours upticks)",
+        "Security posture: monthly automatic data deletion, no cross-user visibility, privacy filters, pause control, SOC 2",
+        "Human support, \"not offshore and not AI\""
+      ],
+      "weaknesses": [
+        "Continuous screen monitoring is a hard sell to partners and firm GCs",
+        "No public pricing",
+        "Small balance sheet relative to Laurel",
+        "Clio-centric, thinner coverage of other PMS ecosystems",
+        "Conflicting public funding data"
+      ],
+      "sources": [
+        {
+          "title": "Ajax homepage",
+          "url": "https://joinajax.com/"
+        },
+        {
+          "title": "Ajax integrations",
+          "url": "https://joinajax.com/integrations"
+        },
+        {
+          "title": "LawSites: The Smart Screen Reader — How Ajax Is Automating Legal Timekeeping",
+          "url": "https://www.lawnext.com/2025/09/the-smart-screen-reader-how-ajax-is-automating-legal-timekeeping-with-ai-powered-activity-tracking.html"
+        },
+        {
+          "title": "Flowlie success story: Ajax",
+          "url": "https://www.flowlie.com/success-stories/ajax/"
+        },
+        {
+          "title": "PitchBook: Ajax profile",
+          "url": "https://pitchbook.com/profiles/company/556065-82"
+        },
+        {
+          "title": "Clear Guidance: Ajax AI for Clio-based law firms",
+          "url": "https://www.clear-guidance.com/ajax-ai"
+        }
+      ]
+    },
+    {
+      "name": "Billables AI",
+      "url": "https://legaltechnology.com/startup-corner-billables-ai-for-automated-legal-time-tracking/",
+      "oneLiner": "AI timesheets that capture and organise billable activity for lawyers and consultants, adapting to individual billing preferences and writing entries back into Clio matters.",
+      "category": "direct",
+      "overlapScore": 72,
+      "funding": {
+        "totalRaised": null,
+        "lastRound": "~$10.2M Series A led by Avenue Growth Partners (prior: $3.9M seed in 2024 led by Wing VC); valuation not disclosed",
+        "lastRoundDate": "9 June 2026",
+        "investors": [
+          "Avenue Growth Partners",
+          "Wing VC",
+          "SignalFire",
+          "Alumni Ventures"
+        ]
+      },
+      "pricing": null,
+      "targetSegment": "Midmarket law firms; reported \"hundreds of law firms\"; founded 2023, San Francisco",
+      "strengths": [
+        "Freshly funded ~$10.2M Series A",
+        "Integration-led GTM embedding into Clio, MyCase, SurePoint and daily workflows",
+        "Whole-workday capture across integrated tools",
+        "Adapts to firm/individual billing preferences over time",
+        "Expanding into \"operational intelligence\" beyond timekeeping"
+      ],
+      "weaknesses": [
+        "No public pricing found",
+        "Competing head-to-head with Ajax in the same midmarket lane",
+        "Move beyond timekeeping signals timekeeping alone may not be a large enough market"
+      ],
+      "sources": [
+        {
+          "title": "Clio: AI time tracking for lawyers",
+          "url": "https://www.clio.com/blog/ai-time-tracking-for-lawyers/"
+        },
+        {
+          "title": "Legal IT Insider: Startup Corner — Billables AI",
+          "url": "https://legaltechnology.com/startup-corner-billables-ai-for-automated-legal-time-tracking/"
+        },
+        {
+          "title": "GlobeNewswire: Billables AI Raises $10 Million Series A",
+          "url": "https://www.globenewswire.com/news-release/2026/06/09/3309069/0/en/Billables-AI-Raises-10-Million-Series-A-to-Accelerate-AI-Powered-Operational-Intelligence-for-Law-Firms.html"
+        },
+        {
+          "title": "Pulse2: Billables AI raises $10.2M Series A",
+          "url": "https://pulse2.com/billables-ai-raises-10-2-million-series-a-to-expand-ai-powered-operational-intelligence-platform-for-law-firms/amp/"
+        },
+        {
+          "title": "Law360 Pulse: Legal Timekeeping Tool Billables AI Gets $10M",
+          "url": "https://www.law360.com/pulse/articles/2486051/legal-timekeeping-tool-billables-ai-gets-10m-investment"
+        },
+        {
+          "title": "LawSites: Billables AI raises $10M Series A",
+          "url": "https://www.lawnext.com/2026/06/watch-billables-ai-raises-10-million-series-a-to-accelerate-ai-powered-operational-intelligence-for-law-firms.html"
+        }
+      ]
+    },
+    {
+      "name": "PointOne",
+      "url": "https://www.clio.com/blog/ai-time-tracking-for-lawyers/",
+      "oneLiner": "Automated timekeeping plus bill review, capturing the full workday from laptop and mobile and generating time-entry narratives.",
+      "category": "direct",
+      "overlapScore": 65,
+      "funding": null,
+      "pricing": null,
+      "targetSegment": "Not verified in the notes; named as one of two \"newer AI-focused entrants\" alongside Billables AI",
+      "strengths": [
+        "Whole-workday capture across both laptop and mobile",
+        "Bill review in addition to time entry",
+        "Generates narratives even for lawyers who prefer manual timers",
+        "Integrates with Clio Manage"
+      ],
+      "weaknesses": [
+        "Funding, pricing, headcount and segment detail all unverified"
+      ],
+      "sources": [
+        {
+          "title": "Clio: AI time tracking for lawyers",
+          "url": "https://www.clio.com/blog/ai-time-tracking-for-lawyers/"
+        },
+        {
+          "title": "LawSites: The Smart Screen Reader — How Ajax Is Automating Legal Timekeeping",
+          "url": "https://www.lawnext.com/2025/09/the-smart-screen-reader-how-ajax-is-automating-legal-timekeeping-with-ai-powered-activity-tracking.html"
+        }
+      ]
+    },
+    {
+      "name": "Laurel (formerly Time by Ping)",
+      "url": "https://www.laurel.ai/solutions/legal",
+      "oneLiner": "Enterprise \"AI Time platform\" with automated timesheets, real-time Compliance Review against client billing rules, and work-intelligence analytics.",
+      "category": "adjacent",
+      "overlapScore": 55,
+      "funding": {
+        "totalRaised": null,
+        "lastRound": "$100M Series C led by IVP with GV and 01A; post-money not disclosed (prior: $13.2M Series A Nov 2019, $36.5M Series B Mar 2022)",
+        "lastRoundDate": "10 June 2025",
+        "investors": [
+          "IVP",
+          "GV (Google Ventures)",
+          "01A"
+        ]
+      },
+      "pricing": {
+        "model": "Enterprise sales, no public pricing",
+        "entryPrice": null,
+        "notes": "No public pricing; white-glove onboarding, dedicated account and success manager, custom billing-system integrations."
+      },
+      "targetSegment": "Large law firms (plus an accounting vertical)",
+      "strengths": [
+        "$100M Series C and substantial capital",
+        "Am Law relationships",
+        "Compliance Review rules engine built on per-client billing guidelines — the hardest data to accumulate",
+        "Whole-workday capture across email, calls and digital platforms",
+        "Second vertical (accounting) amortises R&D"
+      ],
+      "weaknesses": [
+        "Long enterprise sales cycles, no self-serve",
+        "Nine years old and still expanding scope",
+        "One aggregator claims $7.5M ARR at a $22.5M valuation in 2024 — unverified and inconsistent with the $100M Series C"
+      ],
+      "sources": [
+        {
+          "title": "Laurel legal solutions",
+          "url": "https://www.laurel.ai/solutions/legal"
+        },
+        {
+          "title": "Laurel accounting solutions",
+          "url": "https://www.laurel.ai/solutions/accounting"
+        },
+        {
+          "title": "Laurel raises $100M Series C",
+          "url": "https://www.laurel.ai/resources-post/ai-time-platform-laurel-raises-100-million-to-transform-the-professional-services-industry"
+        },
+        {
+          "title": "LawSites: Laurel raises $100M Series C",
+          "url": "https://www.lawnext.com/2025/06/ai-timekeeping-platform-laurel-raises-100m-in-series-c-round.html"
+        },
+        {
+          "title": "Legal IT Insider: Laurel raises $100M Series C",
+          "url": "https://legaltechnology.com/2025/06/10/laurel-raises-100m-series-c-as-it-maps-time-and-business-outcomes/"
+        },
+        {
+          "title": "TechCrunch: Ping legal timesheets Series A",
+          "url": "https://techcrunch.com/2019/11/12/ping-legal-timesheets/"
+        },
+        {
+          "title": "LawSites: Time by Ping raises $36.5M Series B",
+          "url": "https://www.lawnext.com/2022/03/time-by-ping-raises-36-5m-series-b-exclusive-lawnext-interview-with-ceo-ryan-alshak/"
+        },
+        {
+          "title": "GetLatka: Laurel (unverified aggregator data)",
+          "url": "https://getlatka.com/companies/laurel"
+        }
+      ]
+    },
+    {
+      "name": "Clio Manage AI (formerly Clio Duo)",
+      "url": "https://www.clio.com/features/legal-ai-software/",
+      "oneLiner": "Bundled AI inside Clio Manage that suggests time entries for unlogged calls, emails, notes and completed tasks, with an AI chat panel to log time from anywhere in the product.",
+      "category": "adjacent",
+      "overlapScore": 60,
+      "funding": null,
+      "pricing": null,
+      "targetSegment": "Existing Clio customers, skewing small firms",
+      "strengths": [
+        "Distribution: already inside the PMS the customer uses",
+        "Markets \"no third-party software, no switching tools, no exposing firm or client data to third parties\" — the strongest objection-handle against every startup in the category",
+        "Bundled and \"good enough\" for the small end"
+      ],
+      "weaknesses": [
+        "Shallow suggestion-based entries with weak rules logic",
+        "Only sees activity inside Clio",
+        "Current per-seat pricing not verified"
+      ],
+      "sources": [
+        {
+          "title": "Clio: AI time tracking for lawyers",
+          "url": "https://www.clio.com/blog/ai-time-tracking-for-lawyers/"
+        },
+        {
+          "title": "Clio legal AI software",
+          "url": "https://www.clio.com/features/legal-ai-software/"
+        }
+      ]
+    },
+    {
+      "name": "BigHand SmartTime",
+      "url": "https://www.clio.com/blog/ai-time-tracking-for-lawyers/",
+      "oneLiner": "Legacy enterprise legal timekeeping with AI-generated timesheets, auto-narratives for consistent entry descriptions, and time-gap analysis to surface unrecorded time.",
+      "category": "adjacent",
+      "overlapScore": 45,
+      "funding": null,
+      "pricing": null,
+      "targetSegment": "Large law firms",
+      "strengths": [
+        "Already sold into large firms alongside BigHand's other back-office products",
+        "Existing procurement path",
+        "Auto-narratives and whole-workday gap analysis"
+      ],
+      "weaknesses": [
+        "Legacy UX",
+        "Review-heavy workflow",
+        "Pricing not retrieved"
+      ],
+      "sources": [
+        {
+          "title": "Clio: AI time tracking for lawyers",
+          "url": "https://www.clio.com/blog/ai-time-tracking-for-lawyers/"
+        }
+      ]
+    },
+    {
+      "name": "Lawgro MagicTime",
+      "url": "https://www.clio.com/blog/ai-time-tracking-for-lawyers/",
+      "oneLiner": "Background activity capture from Gmail, Word, Outlook, court websites and calendars that builds a timesheet for review, with Clio integration.",
+      "category": "direct",
+      "overlapScore": 50,
+      "funding": null,
+      "pricing": null,
+      "targetSegment": "Law firms; small vendor",
+      "strengths": [
+        "Broad background capture across email, documents, calendars and court websites",
+        "Clio integration"
+      ],
+      "weaknesses": [
+        "Small scale",
+        "No sourced funding round",
+        "Pricing not retrieved"
+      ],
+      "sources": [
+        {
+          "title": "Clio: AI time tracking for lawyers",
+          "url": "https://www.clio.com/blog/ai-time-tracking-for-lawyers/"
+        }
+      ]
+    },
+    {
+      "name": "Fireflies.ai",
+      "url": "https://fireflies.ai/pricing",
+      "oneLiner": "Horizontal AI meeting notetaker and transcription tool that sets the price anchor for the category.",
+      "category": "adjacent",
+      "overlapScore": 40,
+      "funding": null,
+      "pricing": {
+        "model": "Freemium per-seat SaaS",
+        "entryPrice": "$0 free tier; Pro $10/seat/mo annual",
+        "notes": "Business $19/seat/mo annual ($29 monthly); Pro $18 monthly; Enterprise $39/seat/mo annual only. Unlimited transcription and unlimited AI summaries on every tier including free."
+      },
+      "targetSegment": "Horizontal knowledge workers, all industries",
+      "strengths": [
+        "Unlimited transcription and AI summaries even on the free tier — commoditises the notetaking layer",
+        "Very low, transparent price point",
+        "Broad market awareness"
+      ],
+      "weaknesses": [
+        "No matter numbers",
+        "No PMS write-back",
+        "No billing-guideline compliance",
+        "Generic vendor DPAs that firm risk committees dislike"
+      ],
+      "sources": [
+        {
+          "title": "Fireflies pricing",
+          "url": "https://fireflies.ai/pricing"
+        },
+        {
+          "title": "Fireflies pricing: which plan is right for you",
+          "url": "https://fireflies.ai/blog/fireflies-pricing-which-plan-is-right-for-you/"
+        }
+      ]
+    },
+    {
+      "name": "Rev",
+      "url": "https://www.rev.com/solutions/law-firms",
+      "oneLiner": "Transcription provider with a dedicated law-firm solution plus a general AI note taker, positioned on human-plus-AI accuracy.",
+      "category": "adjacent",
+      "overlapScore": 30,
+      "funding": null,
+      "pricing": null,
+      "targetSegment": "Law firms plus general business transcription users",
+      "strengths": [
+        "Existing legal vertical solution",
+        "Human-plus-AI accuracy positioning",
+        "Also ships a general AI note taker"
+      ],
+      "weaknesses": [
+        "No time-entry or matter-linked billing workflow",
+        "Pricing not verified"
+      ],
+      "sources": [
+        {
+          "title": "Rev for law firms",
+          "url": "https://www.rev.com/solutions/law-firms"
+        },
+        {
+          "title": "Rev AI note taker",
+          "url": "https://www.rev.com/services/ai-note-taker"
+        }
+      ]
+    },
+    {
+      "name": "Verbit",
+      "url": "https://verbit.ai/legal/verbit-announces-250-million-series-e-funding-round/",
+      "oneLiner": "Large-scale legal transcription provider that effectively defines the incumbent standard for a \"legal-grade transcript.\"",
+      "category": "adjacent",
+      "overlapScore": 25,
+      "funding": {
+        "totalRaised": null,
+        "lastRound": "$250M Series E at a reported ~$2B valuation (out of window; historical context only)",
+        "lastRoundDate": "November 2021",
+        "investors": []
+      },
+      "pricing": null,
+      "targetSegment": "Legal transcription at scale (court reporting / depositions)",
+      "strengths": [
+        "Owns the incumbent definition of legal-grade, evidentiary transcription",
+        "Large historical capital base and scale"
+      ],
+      "weaknesses": [
+        "Not a competitor for time entry",
+        "2021 valuation is a cautionary tale"
+      ],
+      "sources": [
+        {
+          "title": "Verbit announces $250M Series E",
+          "url": "https://verbit.ai/legal/verbit-announces-250-million-series-e-funding-round/"
+        },
+        {
+          "title": "Times of Israel: Verbit raises $250M at $2B valuation",
+          "url": "https://www.timesofisrael.com/transcription-firm-verbit-raises-250m-doubling-valuation-to-2b/"
+        }
+      ]
+    },
+    {
+      "name": "Granola",
+      "url": "https://tracxn.com/d/companies/granola/__20Jmr-YEndDiNQ5Kx3GcTFiYnHr6bnFCf_X_nMg5ay8",
+      "oneLiner": "Horizontal AI notetaker moving up-market into enterprise after a $125M raise at a $1.5B valuation.",
+      "category": "emerging",
+      "overlapScore": 35,
+      "funding": {
+        "totalRaised": null,
+        "lastRound": "$125M at a $1.5B valuation led by Index Ventures; series letter disputed across sources (B vs C)",
+        "lastRoundDate": "~25 March 2026",
+        "investors": [
+          "Index Ventures"
+        ]
+      },
+      "pricing": null,
+      "targetSegment": "Horizontal knowledge workers, pivoting toward enterprise",
+      "strengths": [
+        "Very large war chest and $1.5B valuation",
+        "Strong product love among VCs and knowledge workers",
+        "Enterprise pivot implies vertical templates and system write-back — legal is an obvious template",
+        "Could make \"good enough\" notes free for law firms"
+      ],
+      "weaknesses": [
+        "Unlikely to build OCG compliance or billing-rules logic",
+        "No legal-specific matter or billing workflow today",
+        "Not a valid legal funding comparable"
+      ],
+      "sources": [
+        {
+          "title": "Bloomberg: AI notetaker Granola hits $1.5B value in $125M funding",
+          "url": "https://www.bloomberg.com/news/articles/2026-03-25/ai-notetaker-granola-hits-1-5-billion-value-in-125-million-funding"
+        },
+        {
+          "title": "TechBuzz: Granola hits $1.5B valuation with $125M raise",
+          "url": "https://www.techbuzz.ai/articles/granola-hits-1-5b-valuation-with-125m-raise-pivots-to-enterprise-ai"
+        },
+        {
+          "title": "Tracxn: Granola",
+          "url": "https://tracxn.com/d/companies/granola/__20Jmr-YEndDiNQ5Kx3GcTFiYnHr6bnFCf_X_nMg5ay8"
+        },
+        {
+          "title": "Forbes: Granola in talks to hit $1B valuation",
+          "url": "https://www.forbes.com/sites/iainmartin/2026/01/30/vcs-favorite-note-taking-app-granola-in-talks-to-hit-1-billion-valuation/"
+        }
+      ]
+    },
+    {
+      "name": "Parrot",
+      "url": "https://techcrunch.com/2023/06/20/parrot-ai-a-transcription-platform-that-turns-speech-into-text-raises-11m-series-a/",
+      "oneLiner": "Deposition-focused transcription platform turning speech into text.",
+      "category": "emerging",
+      "overlapScore": 30,
+      "funding": {
+        "totalRaised": null,
+        "lastRound": "$11M Series A (out of window; historical context only)",
+        "lastRoundDate": "June 2023",
+        "investors": []
+      },
+      "pricing": null,
+      "targetSegment": "Legal depositions and formal proceedings",
+      "strengths": [
+        "Credibility in formal, evidentiary legal proceedings",
+        "Funded and legal-native"
+      ],
+      "weaknesses": [
+        "Focused on formal proceedings rather than informal client calls",
+        "No time-entry or billing workflow"
+      ],
+      "sources": [
+        {
+          "title": "TechCrunch: Parrot AI raises $11M Series A",
+          "url": "https://techcrunch.com/2023/06/20/parrot-ai-a-transcription-platform-that-turns-speech-into-text-raises-11m-series-a/"
+        }
+      ]
+    },
+    {
+      "name": "WiseTime",
+      "url": "https://www.lawnext.com/2025/09/the-smart-screen-reader-how-ajax-is-automating-legal-timekeeping-with-ai-powered-activity-tracking.html",
+      "oneLiner": "Legacy passive timekeeping tool, characterised by a competitor as relying on basic pattern matching.",
+      "category": "adjacent",
+      "overlapScore": 35,
+      "funding": null,
+      "pricing": null,
+      "targetSegment": "Law firms already using passive timekeeping",
+      "strengths": [
+        "Incumbent installed base — creates the \"we already have something\" objection",
+        "Sets the price floor for passive timekeeping"
+      ],
+      "weaknesses": [
+        "Reportedly relies on basic pattern matching (competitor-sourced characterisation)",
+        "No AI-native narrative or compliance layer described"
+      ],
+      "sources": [
+        {
+          "title": "LawSites: The Smart Screen Reader — How Ajax Is Automating Legal Timekeeping",
+          "url": "https://www.lawnext.com/2025/09/the-smart-screen-reader-how-ajax-is-automating-legal-timekeeping-with-ai-powered-activity-tracking.html"
+        }
+      ]
+    },
+    {
+      "name": "Time Miner",
+      "url": "https://www.lawnext.com/2025/09/the-smart-screen-reader-how-ajax-is-automating-legal-timekeeping-with-ai-powered-activity-tracking.html",
+      "oneLiner": "Legacy passive timekeeping tool, characterised by a competitor as relying on basic pattern matching.",
+      "category": "adjacent",
+      "overlapScore": 35,
+      "funding": null,
+      "pricing": null,
+      "targetSegment": "Law firms already using passive timekeeping",
+      "strengths": [
+        "Existing footprint creates a \"we already have something\" objection",
+        "Price floor for the category"
+      ],
+      "weaknesses": [
+        "Reportedly basic pattern matching (competitor-sourced characterisation)",
+        "No compliance or narrative-generation story described"
+      ],
+      "sources": [
+        {
+          "title": "LawSites: The Smart Screen Reader — How Ajax Is Automating Legal Timekeeping",
+          "url": "https://www.lawnext.com/2025/09/the-smart-screen-reader-how-ajax-is-automating-legal-timekeeping-with-ai-powered-activity-tracking.html"
+        }
+      ]
+    },
+    {
+      "name": "Otter.ai",
+      "url": "https://otter.ai",
+      "oneLiner": "Horizontal AI meeting notetaker and transcription tool named in the notes as part of the commoditised meeting-capture layer.",
+      "category": "adjacent",
+      "overlapScore": 25,
+      "funding": null,
+      "pricing": null,
+      "targetSegment": "Horizontal knowledge workers",
+      "strengths": [
+        "Well-known horizontal notetaker in the commodity capture layer"
+      ],
+      "weaknesses": [
+        "No legal-specific matter linkage or billing workflow described in the notes",
+        "Pricing not retrieved"
+      ],
+      "sources": []
+    },
+    {
+      "name": "Fathom",
+      "url": "https://fathom.video",
+      "oneLiner": "Horizontal AI meeting notetaker named in the notes as part of the commoditised meeting-capture layer.",
+      "category": "adjacent",
+      "overlapScore": 20,
+      "funding": null,
+      "pricing": null,
+      "targetSegment": "Horizontal knowledge workers",
+      "strengths": [
+        "Part of the commodity meeting-capture layer with broad general-market adoption"
+      ],
+      "weaknesses": [
+        "No legal-specific matter linkage or billing workflow described in the notes",
+        "No funding or pricing data in the notes"
+      ],
+      "sources": []
+    },
+    {
+      "name": "Steno",
+      "url": "https://steno.com",
+      "oneLiner": "Deposition and court-reporting player named in the notes as part of the legal-grade transcription layer.",
+      "category": "adjacent",
+      "overlapScore": 20,
+      "funding": null,
+      "pricing": null,
+      "targetSegment": "Deposition and court-reporting market",
+      "strengths": [
+        "Operates in the legal-grade / evidentiary transcription world that defines the \"citation-grade\" standard"
+      ],
+      "weaknesses": [
+        "Not a time-entry or billing competitor",
+        "No funding or pricing data in the notes"
+      ],
+      "sources": []
+    }
+  ],
+  "positioning": {
+    "xAxis": {
+      "label": "Capture surface",
+      "lowLabel": "Meeting-only",
+      "highLabel": "Whole workday"
+    },
+    "yAxis": {
+      "label": "Output disposition",
+      "lowLabel": "Descriptive artifact",
+      "highLabel": "Submittable, OCG-compliant billing entry"
+    },
+    "points": [
+      {
+        "name": "You (legal AI notetaker)",
+        "x": 10,
+        "y": 55,
+        "isYou": true
+      },
+      {
+        "name": "VXT",
+        "x": 30,
+        "y": 50,
+        "isYou": false
+      },
+      {
+        "name": "Ajax",
+        "x": 95,
+        "y": 85,
+        "isYou": false
+      },
+      {
+        "name": "Billables AI",
+        "x": 80,
+        "y": 75,
+        "isYou": false
+      },
+      {
+        "name": "PointOne",
+        "x": 85,
+        "y": 62,
+        "isYou": false
+      },
+      {
+        "name": "Laurel",
+        "x": 85,
+        "y": 95,
+        "isYou": false
+      },
+      {
+        "name": "BigHand SmartTime",
+        "x": 88,
+        "y": 85,
+        "isYou": false
+      },
+      {
+        "name": "Clio Manage AI",
+        "x": 60,
+        "y": 50,
+        "isYou": false
+      },
+      {
+        "name": "Lawgro MagicTime",
+        "x": 75,
+        "y": 55,
+        "isYou": false
+      },
+      {
+        "name": "Fireflies.ai",
+        "x": 12,
+        "y": 8,
+        "isYou": false
+      },
+      {
+        "name": "Granola",
+        "x": 12,
+        "y": 6,
+        "isYou": false
+      },
+      {
+        "name": "Rev",
+        "x": 8,
+        "y": 8,
+        "isYou": false
+      },
+      {
+        "name": "Verbit",
+        "x": 6,
+        "y": 10,
+        "isYou": false
+      },
+      {
+        "name": "Parrot",
+        "x": 6,
+        "y": 12,
+        "isYou": false
+      },
+      {
+        "name": "WiseTime",
+        "x": 70,
+        "y": 30,
+        "isYou": false
+      },
+      {
+        "name": "Time Miner",
+        "x": 70,
+        "y": 30,
+        "isYou": false
+      }
+    ],
+    "rationale": "The notes reject price-vs-quality (transcription quality is converging and Fireflies gives unlimited transcription away free) and reject AI-native vs legacy as marketing. The two dimensions practitioners actually argue about are (A) capture surface — meeting-only versus whole-workday, which is the explicit public argument Ajax makes against API-only entrants — and (B) output disposition — whether the output is a note a human must still turn into revenue, or a pre-validated, OCG-compliant line item that survives client billing review. The profitable quadrant is broad capture x compliant output, where Laurel, Ajax and Billables are sprinting; the company sits in narrow capture x middling output, the same square as VXT at a published $40/seat."
+  },
+  "swot": {
+    "strengths": [
+      "Vertical focus on law firms rather than a horizontal notetaker, aligned with a well-quantified pain (Clio Legal Trends: average lawyer records 2.9 of 8 hours as billable, 5.1 hours unbilled)",
+      "Ambition already points right of centre on output: matter-number-linked auto-drafted time entries, not just notes",
+      "Three design partners provide early access to accept/reject/write-down behaviour, the one data asset in this market that compounds",
+      "Speaker attribution plus 'citation-grade' positioning differentiates from generic notetakers on the record-quality dimension"
+    ],
+    "weaknesses": [
+      "Narrowest capture surface of anyone in the set: calendared client calls are the one activity lawyers already remember to bill, while the 5.1 unbilled hours are email, drafting, research and short calls",
+      "No visible OCG / billing-guideline compliance layer, which is the headline for Ajax and the core of Laurel's Compliance Review",
+      "No distribution: no published PMS/billing integration footprint versus Ajax's eight integrations and Billables' integration-led embedding into Clio, MyCase, SurePoint",
+      "Transcription and summarisation are commodities — Fireflies includes unlimited transcription and unlimited AI summaries on its free tier, capping what can be charged for notes",
+      "Pre-seed with 3 design partners against Laurel's $100M Series C and Billables' ~$10.2M Series A",
+      "Product description is effectively already shipping as VXT Meet at a published $40/user/month",
+      "Retention of durable verbatim records of privileged calls is treated as the product, while competitors treat retention as a liability (Ajax deletes data monthly)",
+      "Whole-day capture cannot be bolted on as a feature — it requires different consent, endpoint engineering and security review"
+    ],
+    "opportunities": [
+      "Capture spoken billable work — phone calls, in-person meetings, hearings, negotiations — without forcing a telephony rip-and-replace, which is how VXT reaches the same coverage",
+      "Non-Clio midmarket firms on SurePoint, Centerbase, Actionstep, Soluno get thinner coverage from every competitor, including Clio-centric Ajax",
+      "Reposition as the system of record for spoken billable work with per-client OCG-compliant narrative generation, treating the transcript as a free byproduct",
+      "Accumulate billing-guideline and realisation/write-down data, the only genuinely compounding asset identified in the category",
+      "Billables AI moving beyond timekeeping into 'operational intelligence' signals room left in pure spoken-work capture"
+    ],
+    "threats": [
+      "VXT already ships the stated product — in-person plus virtual capture, matter-linked automatic time entry — at $40/user/month annual, owning the phone line",
+      "Clio Manage AI sells against every startup with 'no third-party software, no switching tools, no exposing firm or client data to third parties' and bundles a good-enough version",
+      "Any whole-day competitor (Ajax, Billables, PointOne, Laurel, BigHand) can add meeting capture as a feature",
+      "Fireflies' free unlimited transcription is price gravity; anything above roughly $19/seat must be justified by billing workflow, not notes",
+      "Granola at $1.5B with enterprise ambitions could ship legal templates and make good-enough notes free for law firms",
+      "Active legal-ethics scrutiny of AI recording of client conversations raises the adoption bar for all recording-based tools and protects no one",
+      "Verbatim records of privileged client calls are discoverable, subpoena-able and malpractice-exhibit-able — some buyers will treat the durable record as the objection",
+      "Parrot could move from deposition transcription into informal client calls and contest the 'citation-grade' claim",
+      "Am Law 100 occupied by BigHand and Laurel with procurement and security cycles a pre-seed cannot survive"
+    ]
+  },
+  "moat": {
+    "verdict": "weak",
+    "reasoning": "The notetaking layer is a commodity fight: Fireflies gives unlimited transcription and AI summaries away on its free tier, and diarisation is table stakes. 'Citation-grade transcripts with speaker attribution' is a claim, not a moat — and if it means chain of custody or certification, Verbit and the deposition world already own that standard. The defensible layer is time-entry-into-billing, where thin but real moats are built from PMS/billing integrations plus accumulated per-client billing guidelines and observed accept/reject/write-down behaviour. The company's stated wedge is the commodity layer attached to the narrowest slice of the defensible layer.",
+    "defensibilityFactors": [
+      "Data: weak-to-moderate. Meeting audio does not compound; per-client billing guidelines and realisation behaviour do. Laurel has a rules engine, Ajax leads with OCG compliance, Billables adapts to firm billing preferences. The company has three design partners' worth.",
+      "Network effects: none. Nothing improves for firm A because firm B uses it.",
+      "Switching costs: moderate and real, but they accrue to whoever owns the timesheet — ripping out timekeeping mid-billing-cycle is painful, whereas notes are trivially portable.",
+      "Distribution: the actual battlefield, and not held. Ajax lists eight PMS/billing integrations, Billables embeds into Clio/MyCase/SurePoint, VXT enters via the phone system, and Clio sells 'already inside Clio, no third-party data exposure'.",
+      "Regulatory/trust: friction, not a moat. Security review (SOC 2, deletion policies, no cross-user visibility) is a gate everyone clears; recording-consent and privilege scrutiny raises the bar for all recording tools without protecting any one of them."
+    ]
+  },
+  "gaps": [
+    {
+      "segment": "Firms with heavy phone and in-person client time",
+      "unmetNeed": "Capture of phone calls and in-person meetings into matter-linked time entries without replacing the firm's phone system",
+      "whyUnserved": "Largely unnoticed — every horizontal notetaker is a video-meeting bot; VXT is the only competitor found covering in-person plus virtual with matter-linked entries, and it gets there via a telephony rip-and-replace",
+      "evidence": "VXT Meet product page (vxt.ai/products/meet) shows in-person plus virtual capture with automatic time entry; VXT's core business is a law-firm phone system (vxt.ai/industry/law)"
+    },
+    {
+      "segment": "Midmarket firms of 20–150 timekeepers",
+      "unmetNeed": "Automated timekeeping aimed between Clio's small-firm bundle and Laurel's large-firm enterprise motion",
+      "whyUnserved": "Noticed and now contested — Ajax publicly declared this its underserved sweet spot and Billables is midmarket too, so 'underserved' is yesterday's information",
+      "evidence": "LawSites, Sept 2025 (Ajax: mid-sized firms on Clio, 20–150 timekeepers); Billables AI GlobeNewswire release, June 2026 (midmarket, hundreds of law firms)"
+    },
+    {
+      "segment": "Midmarket firms not on Clio (SurePoint, Centerbase, Actionstep, Soluno)",
+      "unmetNeed": "Deep timekeeping/billing write-back for non-Clio practice management stacks",
+      "whyUnserved": "Nobody has prioritised it — Ajax is Clio-centric, with a partner marketing it specifically to Clio-based firms, so coverage is thinner everywhere else",
+      "evidence": "joinajax.com/integrations; clear-guidance.com/ajax-ai markets Ajax to 'Clio-based law firms'"
+    },
+    {
+      "segment": "Firms wary of verbatim records of privileged client calls",
+      "unmetNeed": "Billable-time capture that does not create a durable, discoverable verbatim record of privileged conversations",
+      "whyUnserved": "Everybody's direction of travel says durable retention is a liability — lawyers have kept deliberately sparse notes for a century, and competitors minimise retention rather than sell it",
+      "evidence": "Ajax deletes data monthly (LawSites, Sept 2025); dedicated ethics coverage at 2civility.org and myshingle.com (July 2026) — note: article bodies were not retrieved"
+    },
+    {
+      "segment": "Contingency, flat-fee and plaintiff-side firms",
+      "unmetNeed": "Value from auto-drafted hourly time entries",
+      "whyUnserved": "Everybody tried and it does not work — there is no hourly bill, so the value is near zero; Clio routes PI firms to a different AI playbook entirely",
+      "evidence": "clio.com/blog/ai-time-tracking-for-lawyers/"
+    },
+    {
+      "segment": "Sub-20-lawyer firms",
+      "unmetNeed": "Affordable automated timekeeping below Ajax's 20-timekeeper floor",
+      "whyUnserved": "Economics gap, not a product gap — low ACV, high churn, and Clio bundles a good-enough version for free",
+      "evidence": "Ajax starts at 20 timekeepers (LawSites, Sept 2025); Clio Manage AI suggests entries inside Clio (clio.com/blog/ai-time-tracking-for-lawyers/)"
+    },
+    {
+      "segment": "Am Law 100",
+      "unmetNeed": "Enterprise-grade automated timekeeping",
+      "whyUnserved": "Occupied — BigHand and Laurel hold it, with procurement and security cycles a pre-seed with three design partners cannot survive",
+      "evidence": "laurel.ai/solutions/legal (enterprise motion, white-glove onboarding); BigHand SmartTime already sold into large firms alongside other back-office products"
+    }
+  ],
+  "wedge": {
+    "recommendation": "Reposition from 'AI meeting notetaker' to system of record for spoken billable work: capture phone calls, in-person client meetings, hearings and negotiations without requiring a telephony replacement, and make the output a per-client OCG-compliant time-entry narrative rather than a transcript. Treat the transcript as a free byproduct you never charge for, and target non-Clio midmarket firms where competitor integration coverage is thinnest.",
+    "rationale": "The notes identify this as the only genuinely defensible version of the company. Transcription is a commodity with Fireflies' free unlimited tier as price gravity, and the current product description is already shipping as VXT Meet at a published $40/seat. Value and switching cost accrue to whoever owns the submittable timesheet line item, and the one compounding data asset is per-client billing guidelines plus observed accept/reject/write-down behaviour — not audio. Spoken work (phone and in-person) is the one capture surface the whole-workday competitors reach only via a phone-system rip-and-replace.",
+    "firstMove": "With the three design partners, collect their per-client outside counsel guidelines and every accept/reject/write-down decision on generated entries, ship OCG-compliant narrative generation with matter-linked write-back to at least one non-Clio PMS, add phone-call capture that does not require changing the firm's phone system, and build a documented head-to-head answer to 'why not VXT Meet at $40/seat' plus a data-retention/deletion posture (Ajax-style deletion) for the privilege objection.",
+    "risks": [
+      "Whole-day competitors (Ajax, Billables, PointOne, Laurel, BigHand) can add meeting and spoken-work capture as a feature, while the reverse is not true",
+      "VXT already covers phone plus in-person with matter-linked entries at a published $40/seat and owns the phone line",
+      "Clio's 'already inside Clio, no third-party data exposure' objection blocks third-party tools regardless of product quality",
+      "OCG-compliance data from only three design partners may be too thin to beat Laurel's rules engine or Ajax's OCG-native positioning",
+      "Recording-consent and privilege ethics scrutiny may cap adoption of any recording-based tool; the two key ethics articles were unread at research time",
+      "Fireflies-driven price gravity means pricing above roughly $19/seat must be carried entirely by billing workflow value",
+      "No disclosed valuation comps exist in legal timekeeping, and the nearest pre-seed comp (Ajax) has conflicting funding figures — fundraising narrative rests on thin comparables",
+      "PointOne's funding, pricing and segment are unverified, so a well-capitalised direct competitor may be underestimated"
+    ]
+  },
+  "valuation": {
+    "comparables": [
+      {
+        "company": "Laurel (formerly Time by Ping)",
+        "roundStage": "Series C",
+        "date": "2025-06-10",
+        "amountRaised": 100000000,
+        "postMoneyValuation": null,
+        "revenueMultiple": null,
+        "source": {
+          "title": "AI Time platform Laurel raises $100 million to transform the professional services industry",
+          "url": "https://www.laurel.ai/resources-post/ai-time-platform-laurel-raises-100-million-to-transform-the-professional-services-industry"
+        }
+      },
+      {
+        "company": "Billables AI",
+        "roundStage": "Series A",
+        "date": "2026-06-09",
+        "amountRaised": 10200000,
+        "postMoneyValuation": null,
+        "revenueMultiple": null,
+        "source": {
+          "title": "Billables AI Raises $10 Million Series A to Accelerate AI-Powered Operational Intelligence for Law Firms",
+          "url": "https://www.globenewswire.com/news-release/2026/06/09/3309069/0/en/Billables-AI-Raises-10-Million-Series-A-to-Accelerate-AI-Powered-Operational-Intelligence-for-Law-Firms.html"
+        }
+      },
+      {
+        "company": "Billables AI",
+        "roundStage": "Seed",
+        "date": "2024 (month not specified in sources)",
+        "amountRaised": 3900000,
+        "postMoneyValuation": null,
+        "revenueMultiple": null,
+        "source": {
+          "title": "Billables AI Raises $10.2 Million Series A (includes prior $3.9M seed led by Wing VC)",
+          "url": "https://pulse2.com/billables-ai-raises-10-2-million-series-a-to-expand-ai-powered-operational-intelligence-platform-for-law-firms/amp/"
+        }
+      },
+      {
+        "company": "Ajax",
+        "roundStage": "Pre-seed (amount conflicting across sources — not cited)",
+        "date": "Not disclosed; LawSites reported a recent round in Sept 2025 with confidential details",
+        "amountRaised": null,
+        "postMoneyValuation": null,
+        "revenueMultiple": null,
+        "source": {
+          "title": "The Smart Screen Reader: How Ajax Is Automating Legal Timekeeping With AI-Powered Activity Tracking",
+          "url": "https://www.lawnext.com/2025/09/the-smart-screen-reader-how-ajax-is-automating-legal-timekeeping-with-ai-powered-activity-tracking.html"
+        }
+      },
+      {
+        "company": "Granola (adjacent — horizontal notetaker, category-heat framing only)",
+        "roundStage": "Series B or C (series letter disputed across sources)",
+        "date": "2026-03-25",
+        "amountRaised": 125000000,
+        "postMoneyValuation": 1500000000,
+        "revenueMultiple": null,
+        "source": {
+          "title": "AI Notetaker Granola Hits $1.5 Billion Value in $125 Million Funding",
+          "url": "https://www.bloomberg.com/news/articles/2026-03-25/ai-notetaker-granola-hits-1-5-billion-value-in-125-million-funding"
+        }
+      },
+      {
+        "company": "Time by Ping (now Laurel) — out of window, historical context",
+        "roundStage": "Series A",
+        "date": "2019-11-12",
+        "amountRaised": 13200000,
+        "postMoneyValuation": null,
+        "revenueMultiple": null,
+        "source": {
+          "title": "Ping raises $13.2M for legal timesheets",
+          "url": "https://techcrunch.com/2019/11/12/ping-legal-timesheets/"
+        }
+      },
+      {
+        "company": "Time by Ping (now Laurel) — out of window, historical context",
+        "roundStage": "Series B",
+        "date": "2022-03",
+        "amountRaised": 36500000,
+        "postMoneyValuation": null,
+        "revenueMultiple": null,
+        "source": {
+          "title": "Time by Ping Raises $36.5M Series B — LawNext interview with CEO Ryan Alshak",
+          "url": "https://www.lawnext.com/2022/03/time-by-ping-raises-36-5m-series-b-exclusive-lawnext-interview-with-ceo-ryan-alshak/"
+        }
+      },
+      {
+        "company": "Verbit — out of window, historical context",
+        "roundStage": "Series E",
+        "date": "2021-11",
+        "amountRaised": 250000000,
+        "postMoneyValuation": 2000000000,
+        "revenueMultiple": null,
+        "source": {
+          "title": "Verbit Announces $250 Million Series E Funding Round",
+          "url": "https://verbit.ai/legal/verbit-announces-250-million-series-e-funding-round/"
+        }
+      },
+      {
+        "company": "Parrot — out of window, historical context",
+        "roundStage": "Series A",
+        "date": "2023-06-20",
+        "amountRaised": 11000000,
+        "postMoneyValuation": null,
+        "revenueMultiple": null,
+        "source": {
+          "title": "Parrot AI, a transcription platform that turns speech into text, raises $11M Series A",
+          "url": "https://techcrunch.com/2023/06/20/parrot-ai-a-transcription-platform-that-turns-speech-into-text-raises-11m-series-a/"
+        }
+      }
+    ],
+    "impliedRange": null,
+    "fundraiseGuidance": {
+      "suggestedRaise": "Not specified in the research notes. No sourced pre-seed round exists for a legal meeting-notetaker company, and the nearest pre-seed comp (Ajax) has contradictory figures ($1.5M per Flowlie vs $955K total per PitchBook), so the notes deliberately decline to anchor a raise size.",
+      "suggestedStage": "Pre-seed (current stage; 3 design partners)",
+      "keyMetricsToHit": [
+        "Convert the 3 design partners into paying firms and show a pilot-to-paid conversion motion (Ajax claims 97% pilot-to-paid in 2025 as the benchmark)",
+        "Ship per-client OCG / billing-guideline compliant narrative generation, not just notes — the only accumulating data asset in the category",
+        "Build PMS/billing write-back integrations beyond Clio (SurePoint, Centerbase, Actionstep, Soluno are thinly covered); Ajax lists 8",
+        "Broaden capture surface to phone calls and in-person meetings without requiring a telephony rip-and-replace (the genuine hole VXT only fills via phone-system replacement)",
+        "Time entries generated per user per day (whole-day competitors claim 10–20; a meeting-only tool yields ~2–4)",
+        "Demonstrated realisation lift / recorded-hours uplift per timekeeper (comparable claims: 12% more billable hours, 42–61% recorded-hours upticks)",
+        "A defensible answer to recording consent, privilege and retention risk (competitors are deleting data monthly; retention is a liability here)",
+        "A crisp 'why not VXT Meet at a published $40/seat' and 'why not Clio Manage AI, already inside Clio' objection handle",
+        "Pricing power above the ~$19/seat Fireflies price gravity justified by billing workflow, not transcription",
+        "SOC 2 / security posture sufficient to clear firm risk-committee review"
+      ]
+    },
+    "caveats": [
+      "No implied valuation range can be derived: not one of the in-window legal timekeeping rounds (Laurel Series C, Billables AI Series A, Billables AI seed) disclosed a post-money valuation. If asked what the space prices at, the sourced answer is 'not publicly disclosed.'",
+      "The only disclosed valuations in the comp set are out-of-category or out-of-window: Granola ($1.5B, horizontal notetaker, explicitly not a legal comp) and Verbit (~$2B in Nov 2021, a cautionary 2021-vintage mark).",
+      "A getlatka aggregator figure of $7.5M ARR at a $22.5M valuation for Laurel (2024) is unverified aggregator data, wildly inconsistent with a $100M Series C, and was not corroborated — do not treat it as a valuation comp.",
+      "Zero sourced pre-seed rounds exist for legal meeting-notetaker companies specifically; the nearest pre-seed comp (Ajax) has conflicting dollar figures across Flowlie and PitchBook and should be cited only by investor list (Fika Ventures, Bloomberg Beta, ESQvest, Five Two Five, m]x[v Capital).",
+      "Only 3 clean, in-window (≈July 2024–July 2026), legal-space rounds were fully sourced, and the Billables AI seed date is 'in 2024' with no month, so strict 24-month window membership is unconfirmed.",
+      "No round could be sourced for PointOne, VXT or Lawgro — their absence means unverified, not unfunded. No revenue multiples were available for any comparable, and no revenue or ARR figures were verified for any company.",
+      "Company-reported traction and uplift claims (Ajax, Billables AI) are vendor-sourced marketing, even where a journalist republished them.",
+      "Headcount was not researched for any company; pricing is unverified for Clio, Ajax, Billables AI, PointOne, Otter, Smokeball, Rev and BigHand (only VXT and Fireflies pricing is verified from their own pages)."
+    ]
+  },
+  "sources": [
+    {
+      "title": "AI Time Tracking for Lawyers — Clio blog",
+      "url": "https://www.clio.com/blog/ai-time-tracking-for-lawyers/"
+    },
+    {
+      "title": "AI Time Tracking for Lawyers — ABA Law Technology Today",
+      "url": "https://www.americanbar.org/groups/law_practice/resources/law-technology-today/2025/ai-time-tracking-for-lawyers/"
+    },
+    {
+      "title": "VXT Meet — The AI notetaker for attorneys",
+      "url": "https://www.vxt.ai/products/meet"
+    },
+    {
+      "title": "VXT Pricing",
+      "url": "https://www.vxt.ai/pricing"
+    },
+    {
+      "title": "VXT for Law Firms",
+      "url": "https://www.vxt.ai/industry/law"
+    },
+    {
+      "title": "Ajax — AI-powered legal timekeeping",
+      "url": "https://joinajax.com/"
+    },
+    {
+      "title": "The Smart Screen Reader: How Ajax Is Automating Legal Timekeeping With AI-Powered Activity Tracking (LawSites, Sept 2025)",
+      "url": "https://www.lawnext.com/2025/09/the-smart-screen-reader-how-ajax-is-automating-legal-timekeeping-with-ai-powered-activity-tracking.html"
+    },
+    {
+      "title": "Ajax Integrations",
+      "url": "https://joinajax.com/integrations"
+    },
+    {
+      "title": "Startup Corner: Billables AI for automated legal time tracking (Legal IT Insider, Dec 2025)",
+      "url": "https://legaltechnology.com/startup-corner-billables-ai-for-automated-legal-time-tracking/"
+    },
+    {
+      "title": "Billables AI Raises $10 Million Series A (GlobeNewswire, 9 June 2026)",
+      "url": "https://www.globenewswire.com/news-release/2026/06/09/3309069/0/en/Billables-AI-Raises-10-Million-Series-A-to-Accelerate-AI-Powered-Operational-Intelligence-for-Law-Firms.html"
+    },
+    {
+      "title": "Billables AI Raises $10.2 Million Series A (Pulse 2.0)",
+      "url": "https://pulse2.com/billables-ai-raises-10-2-million-series-a-to-expand-ai-powered-operational-intelligence-platform-for-law-firms/amp/"
+    },
+    {
+      "title": "Legal Timekeeping Tool Billables AI Gets $10M Investment (Law360 Pulse)",
+      "url": "https://www.law360.com/pulse/articles/2486051/legal-timekeeping-tool-billables-ai-gets-10m-investment"
+    },
+    {
+      "title": "Billables AI Raises $10 Million Series A (LawNext, June 2026)",
+      "url": "https://www.lawnext.com/2026/06/watch-billables-ai-raises-10-million-series-a-to-accelerate-ai-powered-operational-intelligence-for-law-firms.html"
+    },
+    {
+      "title": "Laurel — Solutions for Legal",
+      "url": "https://www.laurel.ai/solutions/legal"
+    },
+    {
+      "title": "Laurel — Solutions for Accounting",
+      "url": "https://www.laurel.ai/solutions/accounting"
+    },
+    {
+      "title": "AI Time platform Laurel raises $100 million",
+      "url": "https://www.laurel.ai/resources-post/ai-time-platform-laurel-raises-100-million-to-transform-the-professional-services-industry"
+    },
+    {
+      "title": "AI timekeeping platform Laurel raises $100M in Series C round (LawNext)",
+      "url": "https://www.lawnext.com/2025/06/ai-timekeeping-platform-laurel-raises-100m-in-series-c-round.html"
+    },
+    {
+      "title": "Laurel raises $100m Series C as it maps time and business outcomes (Legal IT Insider)",
+      "url": "https://legaltechnology.com/2025/06/10/laurel-raises-100m-series-c-as-it-maps-time-and-business-outcomes/"
+    },
+    {
+      "title": "Ping raises $13.2M for legal timesheets (TechCrunch, Nov 2019)",
+      "url": "https://techcrunch.com/2019/11/12/ping-legal-timesheets/"
+    },
+    {
+      "title": "Time by Ping Raises $36.5M Series B (LawNext, March 2022)",
+      "url": "https://www.lawnext.com/2022/03/time-by-ping-raises-36-5m-series-b-exclusive-lawnext-interview-with-ceo-ryan-alshak/"
+    },
+    {
+      "title": "Laurel company profile (Latka — unverified aggregator data)",
+      "url": "https://getlatka.com/companies/laurel"
+    },
+    {
+      "title": "Clio Legal AI Software (Clio Manage AI)",
+      "url": "https://www.clio.com/features/legal-ai-software/"
+    },
+    {
+      "title": "Fireflies Pricing: Which Plan Is Right For You?",
+      "url": "https://fireflies.ai/blog/fireflies-pricing-which-plan-is-right-for-you/"
+    },
+    {
+      "title": "Fireflies.ai Pricing",
+      "url": "https://fireflies.ai/pricing"
+    },
+    {
+      "title": "Rev — Transcription solutions for law firms",
+      "url": "https://www.rev.com/solutions/law-firms"
+    },
+    {
+      "title": "Rev — AI Note Taker",
+      "url": "https://www.rev.com/services/ai-note-taker"
+    },
+    {
+      "title": "Verbit Announces $250 Million Series E Funding Round",
+      "url": "https://verbit.ai/legal/verbit-announces-250-million-series-e-funding-round/"
+    },
+    {
+      "title": "Transcription firm Verbit raises $250m, doubling valuation to $2b (Times of Israel)",
+      "url": "https://www.timesofisrael.com/transcription-firm-verbit-raises-250m-doubling-valuation-to-2b/"
+    },
+    {
+      "title": "AI Notetaker Granola Hits $1.5 Billion Value in $125 Million Funding (Bloomberg)",
+      "url": "https://www.bloomberg.com/news/articles/2026-03-25/ai-notetaker-granola-hits-1-5-billion-value-in-125-million-funding"
+    },
+    {
+      "title": "Granola hits $1.5B valuation with $125M raise, pivots to enterprise AI (TechBuzz)",
+      "url": "https://www.techbuzz.ai/articles/granola-hits-1-5b-valuation-with-125m-raise-pivots-to-enterprise-ai"
+    },
+    {
+      "title": "Granola company profile (Tracxn)",
+      "url": "https://tracxn.com/d/companies/granola/__20Jmr-YEndDiNQ5Kx3GcTFiYnHr6bnFCf_X_nMg5ay8"
+    },
+    {
+      "title": "VCs' Favorite Note-Taking App Granola In Talks To Hit $1 Billion Valuation (Forbes, Jan 2026)",
+      "url": "https://www.forbes.com/sites/iainmartin/2026/01/30/vcs-favorite-note-taking-app-granola-in-talks-to-hit-1-billion-valuation/"
+    },
+    {
+      "title": "Parrot AI raises $11M Series A (TechCrunch, June 2023)",
+      "url": "https://techcrunch.com/2023/06/20/parrot-ai-a-transcription-platform-that-turns-speech-into-text-raises-11m-series-a/"
+    },
+    {
+      "title": "Can lawyers legally and ethically record conversations with clients using artificial intelligence? (MyShingle, July 2026 — body not retrieved)",
+      "url": "https://www.myshingle.com/2026/07/can-lawyers-legally-and-ethically-record-conversations-with-clients-using-artificial-intelligence/"
+    },
+    {
+      "title": "When AI Notetakers Enter Your Client Meetings: Ethical Duties and Risks for Lawyers (2Civility — body not retrieved)",
+      "url": "https://www.2civility.org/when-ai-notetakers-enter-your-client-meetings-ethical-duties-and-risks-for-lawyers/"
+    },
+    {
+      "title": "Ajax AI for Clio-based law firms (Clear Guidance partner page)",
+      "url": "https://www.clear-guidance.com/ajax-ai"
+    },
+    {
+      "title": "Ajax success story (Flowlie — $1.5M pre-seed claim, conflicting)",
+      "url": "https://www.flowlie.com/success-stories/ajax/"
+    },
+    {
+      "title": "Ajax company profile (PitchBook — $955K raised claim, conflicting)",
+      "url": "https://pitchbook.com/profiles/company/556065-82"
+    }
+  ],
+  "confidence": "medium"
+}
